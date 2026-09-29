@@ -1,0 +1,136 @@
+- title: 'Controlling Rydberg atom-polariton interactions: from exceptional points to fast readout'
+  authors: T. Šumarac, E. H. Qiu, S. Tsesses, P. Niu, A. J. Menssen, W. Xu, V. Walther, U. Delić, S. Choi, M. D. Lukin, V. Vuletić
+  venue: arXiv:2601.06345
+  year: 2026
+  type: preprint
+  doi: ''
+  arxiv: '2601.06345'
+  highlight: false
+- title: Strategic plan for neutral atom quantum computation
+  authors: A. J. Menssen, T. Wang, M. Gullans, T. Manovitz, J. M. Taylor, et al. (incl. S. Tsesses, V. Vuletić)
+  venue: arXiv:2607.21554
+  year: 2026
+  type: preprint
+  doi: ''
+  arxiv: '2607.21554'
+  highlight: false
+- title: Quantum skyrmions in mixed states of light and their nested topology
+  authors: A. Kam, C. Roques-Carmes, S. Tsesses, A. Karnieli
+  venue: ACS Photonics (2026)
+  year: 2026
+  type: journal
+  doi: 10.1021/acsphotonics.6c01382
+  arxiv: '2604.23571'
+  highlight: false
+- title: Loading and imaging atom arrays via electromagnetically induced transparency
+  authors: E. H. Qiu, T. Šumarac, P. Niu, S. Tsesses, F. Wassaf, D. C. Spierings, M.-W. Chen, M. T. Uysal, A. Bartlett, A. J. Menssen, M. D. Lukin, V. Vuletić
+  venue: PRX Quantum 7, 020358 (2026)
+  year: 2026
+  type: journal
+  doi: 10.1103/fd15-4g1n
+  arxiv: '2509.12124'
+  highlight: true
+- title: Tracking the evolution of near-field photonic qubits into high-dimensional qudits via state tomography
+  authors: A. Kam, S. Tsesses, L. Fridman, Y. Ilin, A. Sivan, G. Sayer, K. Cohen, A. Shaham, L. Nemirovsky-Levy, L. Popilevsky, M. Orenstein, M. Segev, G. Bartal
+  venue: eLight 6, 13 (2026)
+  year: 2026
+  type: journal
+  doi: 10.1186/s43593-026-00124-1
+  arxiv: '2504.20590'
+  highlight: false
+- title: Reduced state embedding for error correction in quantum cryptography
+  authors: A. Kam, K. Sulimany, S. Tsesses, U. Pereg
+  venue: Newton, 100597 (2026)
+  year: 2026
+  type: journal
+  doi: 10.1016/j.newton.2026.100597
+  arxiv: '2510.19989'
+  highlight: false
+- title: Near-field photon entanglement in total angular momentum
+  authors: A. Kam, S. Tsesses, Y. Ilin, K. Cohen, Y. Lumer, L. Fridman, S. Lotan, A. Patsyk, L. Nemirovsky-Levy, M. Orenstein, M. Segev, G. Bartal
+  venue: Nature 640, 634–640 (2025)
+  year: 2025
+  type: journal
+  doi: 10.1038/s41586-025-08761-1
+  arxiv: ''
+  highlight: true
+- title: Coherently amplified ultrafast imaging using a free-electron interferometer
+  authors: T. Bucher, H. Nahari, H. Herzig Sheinfux, R. Ruimy, A. Niedermayr, R. Dahan, Q. Yan, Y. Adiv, M. Yannai, J. Chen, Y. Kurman, S. T. Park, D. J. Masiel, E. Janzen, J. H. Edgar, F. Carbone, G. Bartal, S. Tsesses, F. H. L. Koppens, G. M. Vanacore, I. Kaminer
+  venue: Nature Photonics 18, 809–815 (2024)
+  year: 2024
+  type: journal
+  doi: 10.1038/s41566-024-01451-w
+  arxiv: '2305.04877'
+  highlight: false
+- title: Universal and ultrafast quantum computation based on free-electron-polariton blockade
+  authors: A. Karnieli, S. Tsesses, R. Yu, N. Rivera, A. Arie, I. Kaminer, S. Fan
+  venue: PRX Quantum 5, 010339 (2024)
+  year: 2024
+  type: journal
+  doi: 10.1103/PRXQuantum.5.010339
+  arxiv: '2303.13275'
+  highlight: false
+- title: Tunable photon-induced spatial modulation of free electrons
+  authors: S. Tsesses, R. Dahan, K. Wang, T. Bucher, K. Cohen, O. Reinhardt, G. Bartal, I. Kaminer
+  venue: Nature Materials 22, 345–352 (2023)
+  year: 2023
+  type: journal
+  doi: 10.1038/s41563-022-01449-1
+  arxiv: '2203.08518'
+  highlight: true
+- title: Free-electron Ramsey-type interferometry for enhanced amplitude and phase imaging of nearfields
+  authors: T. Bucher, R. Ruimy, S. Tsesses, R. Dahan, G. Bartal, G. M. Vanacore, I. Kaminer
+  venue: Science Advances 9, eadi5729 (2023)
+  year: 2023
+  type: journal
+  doi: 10.1126/sciadv.adi5729
+  arxiv: '2305.02727'
+  highlight: false
+- title: Quantum sensing of strongly coupled light-matter systems using free electrons
+  authors: A. Karnieli, S. Tsesses, R. Yu, N. Rivera, Z. Zhao, A. Arie, S. Fan, I. Kaminer
+  venue: Science Advances 9, eadd2349 (2023)
+  year: 2023
+  type: journal
+  doi: 10.1126/sciadv.add2349
+  arxiv: ''
+  highlight: false
+- title: Quantum simulation of generic spin-exchange models in Floquet-engineered Rydberg-atom arrays
+  authors: N. Nishad, A. Keselman, T. Lahaye, A. Browaeys, S. Tsesses
+  venue: Physical Review A 108, 053318 (2023)
+  year: 2023
+  type: journal
+  doi: 10.1103/PhysRevA.108.053318
+  arxiv: '2306.07041'
+  highlight: false
+- title: Observation of 2D Cherenkov radiation
+  authors: Y. Adiv, H. Hu, S. Tsesses, R. Dahan, K. Wang, Y. Kurman, A. Gorlach, H. Chen, X. Lin, G. Bartal, I. Kaminer
+  venue: Physical Review X 13, 011002 (2023)
+  year: 2023
+  type: journal
+  doi: 10.1103/PhysRevX.13.011002
+  arxiv: '2203.01698'
+  highlight: false
+- title: Coherent interaction between free electrons and a photonic cavity
+  authors: K. Wang, R. Dahan, M. Shentcis, Y. Kauffmann, A. Ben Hayun, O. Reinhardt, S. Tsesses, I. Kaminer
+  venue: Nature 582, 50–54 (2020)
+  year: 2020
+  type: journal
+  doi: 10.1038/s41586-020-2321-x
+  arxiv: '1908.06206'
+  highlight: true
+- title: Spin–orbit interaction of light in plasmonic lattices
+  authors: S. Tsesses, K. Cohen, E. Ostrovsky, B. Gjonaj, G. Bartal
+  venue: Nano Letters 19, 4010–4016 (2019)
+  year: 2019
+  type: journal
+  doi: 10.1021/acs.nanolett.9b01343
+  arxiv: ''
+  highlight: false
+- title: Optical skyrmion lattice in evanescent electromagnetic fields
+  authors: S. Tsesses, E. Ostrovsky, K. Cohen, B. Gjonaj, N. H. Lindner, G. Bartal
+  venue: Science 361, 993–996 (2018)
+  year: 2018
+  type: journal
+  doi: 10.1126/science.aau0227
+  arxiv: ''
+  highlight: true

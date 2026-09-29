@@ -1,0 +1,87 @@
+---
+title: "QSTEAP Lab"
+pagetitle: "QSTEAP Lab — Quantum Science and Technology with Electrons, Atoms and Photons"
+body-classes: home
+hero:
+  logo: images/logo-dark.png
+  institution: true
+listing:
+  id: latest-news
+  contents: data/news.yml
+  template: templates/news.ejs
+  sort: "date desc"
+  max-items: 3
+---
+
+::: {.q-section}
+::: {.two-col}
+:::: {}
+[What do we do?]{.eyebrow}
+
+## Electrons, atoms and photons — together
+
+::: {.lead}
+We develop quantum technologies that use simultaneous control over **free electrons**, **atoms** and **light**. By bringing cold atoms and nanophotonic devices into the beam of an electron microscope, we create new ways to generate, shape and measure quantum states of light and matter.
+:::
+
+::: {.tagline}
+{{< meta lab.tagline >}}.
+:::
+
+[Our research](research.qmd){.btn-q} [Publications](publications.qmd){.btn-q .outline}
+::::
+:::: {}
+![](images/concept.png){fig-alt="Concept: an electron-microscope beam passes through a cloud of atoms with high-NA optical access, and its energy is measured by an electron spectrometer."}
+::::
+:::
+:::
+
+::: {.q-soft}
+::: {.q-section}
+[Three ingredients]{.eyebrow}
+
+## One lab
+
+::: {.pillars}
+:::: {.pillar}
+[e⁻]{.letter}
+
+### Free electrons
+Electron-microscope beams shaped and modulated by light — coherent quantum probes with nanometer and femtosecond resolution.
+::::
+:::: {.pillar .blue}
+[At]{.letter}
+
+### Atoms
+Cold atomic media and atom arrays, controlled with lasers through electromagnetically induced transparency and Rydberg interactions.
+::::
+:::: {.pillar}
+[γ]{.letter}
+
+### Photons
+Nanophotonic and near-field light that couples electrons and atoms, for tunable quantum light sources and quantum interconnects.
+::::
+:::
+:::
+:::
+
+::: {.q-section}
+[Latest]{.eyebrow}
+
+## News
+
+::: {#latest-news}
+:::
+
+[All news →](news.qmd)
+:::
+
+::: {.q-section}
+::: {.cta}
+:::: {}
+### We are hiring!
+{{< meta lab.hiring_text >}}
+::::
+[Join the lab](join.qmd){.btn-q}
+:::
+:::

@@ -1,0 +1,23 @@
+---
+title: "Contact"
+hero:
+  title: "Contact us"
+---
+
+::: {.q-section}
+::: {.contact-grid}
+:::: {.contact-card}
+### Get in touch
+**{{< meta lab.pi >}}**, Principal Investigator<br>
+[{{< meta lab.email >}}](mailto:{{< meta lab.email >}})
+
+[Google Scholar]({{< meta lab.scholar >}})
+::::
+:::: {.contact-card}
+### Where we are
+{{< meta lab.name >}}<br>
+{{< meta lab.institution >}}<br>
+{{< meta lab.address >}}
+::::
+:::
+:::

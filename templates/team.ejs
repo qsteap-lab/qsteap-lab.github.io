@@ -1,0 +1,28 @@
+<%
+const order = ['PI', 'Postdocs', 'Graduate students', 'Undergraduates', 'Staff', 'Open positions', 'Alumni'];
+const groups = [...new Set(items.map(p => p.group || 'Members'))].sort((a, b) => {
+const ia = order.indexOf(a), ib = order.indexOf(b);
+return (ia < 0 ? 50 : ia) - (ib < 0 ? 50 : ib);
+});
+const initials = n => String(n || '?').split(/\s+/).filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+%>
+<% for (const g of groups) { %>
+<div class="team-group">
+<% if (g !== 'PI') { %><h2><%= g %></h2><% } %>
+<div class="team-grid">
+<% for (const p of items.filter(x => (x.group || 'Members') === g)) { const open = g === 'Open positions'; %>
+<div class="person<%= g === 'PI' ? ' pi' : '' %><%= open ? ' open-slot' : '' %>">
+<div>
+<% if (p.photo) { %><img class="photo" src="<%= p.photo %>" alt="<%= p.name %>"><% } else { %><div class="initials"><%= open ? '+' : initials(p.name) %></div><% } %>
+</div>
+<div>
+<h3><%= p.name %></h3>
+<div class="role"><%= p.role %></div>
+<% if (p.bio) { %><div class="bio"><%= p.bio %></div><% } %>
+<div class="links"><% if (p.email) { %><a href="mailto:<%= p.email %>">Email</a><% } %><% if (p.website) { %><a href="<%= p.website %>"><%= open ? 'Join us →' : 'Website' %></a><% } %><% if (p.scholar) { %><a href="<%= p.scholar %>" target="_blank" rel="noopener">Google Scholar</a><% } %></div>
+</div>
+</div>
+<% } %>
+</div>
+</div>
+<% } %>

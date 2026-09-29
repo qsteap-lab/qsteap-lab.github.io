@@ -1,0 +1,37 @@
+<%
+const pubs = items.slice().sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
+const years = [...new Set(pubs.map(p => p.year))];
+const bold = s => String(s || '').replace(/(S\. Tsesses|Shai Tsesses)/g, '<b>$1</b>');
+%>
+<div class="pub-filter">
+<input id="pub-search" type="search" placeholder="Filter publications by title, author or journal…" aria-label="Filter publications">
+</div>
+<% for (const y of years) { %>
+<div class="pub-year-block">
+<div class="pub-year"><%= y %></div>
+<% for (const p of pubs.filter(q => q.year === y)) { %>
+<div class="pub<%= p.highlight ? ' highlight' : '' %>" data-search="<%- String((p.title||'') + ' ' + (p.authors||'') + ' ' + (p.venue||'')).toLowerCase().replace(/"/g,'') %>">
+<div class="pub-title"><%= p.title %></div>
+<div class="pub-authors"><%= p.authors %></div>
+<div class="pub-venue"><%= p.venue %><% if (p.type === 'preprint') { %> · <span class="tag blue">Preprint</span><% } %></div>
+<div class="pub-links">
+<% if (p.doi) { %><a href="https://doi.org/<%= p.doi %>" target="_blank" rel="noopener">DOI</a><% } %>
+<% if (p.arxiv) { %><a href="https://arxiv.org/abs/<%= p.arxiv %>" target="_blank" rel="noopener">arXiv</a><% } %>
+<% if (p.pdf) { %><a href="<%= p.pdf %>" target="_blank" rel="noopener">PDF</a><% } %>
+<% if (p.url) { %><a href="<%= p.url %>" target="_blank" rel="noopener">Link</a><% } %>
+</div>
+</div>
+<% } %>
+</div>
+<% } %>
+<script>
+document.querySelectorAll('.pub-authors').forEach(el => { el.innerHTML = el.innerHTML.replace(/(S\. Tsesses|Shai Tsesses)/g, '<b>$1</b>'); });
+document.getElementById('pub-search').addEventListener('input', function () {
+const q = this.value.toLowerCase().trim();
+document.querySelectorAll('.pub-year-block').forEach(b => {
+let any = false;
+b.querySelectorAll('.pub').forEach(p => { const m = !q || p.dataset.search.includes(q); p.style.display = m ? '' : 'none'; any = any || m; });
+b.style.display = any ? '' : 'none';
+});
+});
+</script>

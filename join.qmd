@@ -1,0 +1,26 @@
+---
+title: "Join Us"
+hero:
+  title: "Join us"
+  subtitle: "Build the first experiments of a new lab"
+---
+
+::: {.q-section .q-section-narrow}
+[Open positions]{.eyebrow}
+
+## We are hiring
+
+The QSTEAP Lab is starting up at the University of Wisconsin–Madison, and we are looking for curious, motivated people who want to build new experiments from the ground up. Our work combines electron microscopy, cold atoms, lasers and nanophotonics, so there is room for people from many backgrounds — experimental and theoretical physics, electrical engineering, and materials science.
+
+### Graduate students
+If you are a current or prospective UW–Madison graduate student interested in quantum optics with electrons, atoms and photons, please get in touch.
+
+### Postdoctoral researchers
+We are looking for postdocs with experience in one or more of: cold atoms and laser cooling, electron microscopy or free-electron physics, nanophotonics and nanofabrication, or quantum optics theory.
+
+### Undergraduates
+Undergraduate researchers are welcome to join for projects in optics, electronics, programming and simulation.
+
+### How to apply
+Email [{{< meta lab.email >}}](mailto:{{< meta lab.email >}}) with a CV, a short description of your interests, and (for postdocs) the names of two to three references.
+:::

@@ -1,0 +1,20 @@
+- title: Record-strength free-electron–light interaction
+  tags: Electrons, Photons
+  horizon: Near term
+  image: ''
+  summary: Free electrons in an electron microscope can exchange energy and quantum information with light, but the interaction is usually weak. We design nanophotonic devices that confine light to tiny volumes and phase-match it to the electron, aiming to break the record for free-electron–light coupling strength — the key step toward using free electrons as quantum emitters and probes of quantum light.
+- title: Free electrons meet atomic media
+  tags: Electrons, Atoms, Photons
+  horizon: Long term
+  image: images/concept.png
+  summary: We place a cloud of cold atoms directly in the path of an electron-microscope beam, with high-NA optical access. Using electromagnetically induced transparency (EIT), the atoms can shape how the electron interacts with light — and in turn, the electron can become entangled with the atomic medium. This gives a new, highly tunable platform for quantum light sources and for measuring quantum states of atoms with electrons.
+- title: Free-electron interconnects for neutral-atom processors
+  tags: Electrons, Atoms
+  horizon: Long term
+  image: ''
+  summary: Neutral-atom arrays are one of the leading platforms for quantum computing. We explore free electrons as flying quantum links that can connect separate atomic processors — a new kind of quantum interconnect that works on nanometer and femtosecond scales.
+- title: Nanophotonic free-electron cooling
+  tags: Electrons, Photons
+  horizon: Near term
+  image: ''
+  summary: Borrowing an idea from atomic physics, we investigate Doppler-type cooling of free-electron beams with nanophotonic structures. The goal is to narrow the energy spread of the electron beam, which would improve both electron microscopy and free-electron quantum optics.

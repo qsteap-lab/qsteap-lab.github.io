@@ -1,0 +1,15 @@
+---
+title: "Team"
+hero:
+  title: "Meet the team"
+listing:
+  id: team-list
+  contents: data/team.yml
+  template: templates/team.ejs
+  sort: false
+---
+
+::: {.q-section}
+::: {#team-list}
+:::
+:::

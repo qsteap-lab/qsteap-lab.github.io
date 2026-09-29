@@ -1,0 +1,9 @@
+_site/
+.quarto/
+.venv/
+__pycache__/
+*.tmp
+.DS_Store
+/.luarc.json
+
+/.quarto/

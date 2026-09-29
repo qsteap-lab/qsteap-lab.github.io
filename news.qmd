@@ -1,0 +1,15 @@
+---
+title: "News"
+hero:
+  title: "Latest news"
+listing:
+  id: news-list
+  contents: data/news.yml
+  template: templates/news.ejs
+  sort: "date desc"
+---
+
+::: {.q-section .q-section-narrow}
+::: {#news-list}
+:::
+:::

@@ -1,0 +1,17 @@
+---
+title: "Publications"
+hero:
+  title: "Publications"
+listing:
+  id: pub-list
+  contents: data/publications.yml
+  template: templates/publications.ejs
+  sort: false
+---
+
+::: {.q-section .q-section-narrow}
+For a complete and up-to-date list, see [Google Scholar]({{< meta lab.scholar >}}).
+
+::: {#pub-list}
+:::
+:::

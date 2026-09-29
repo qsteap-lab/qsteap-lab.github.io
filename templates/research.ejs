@@ -1,0 +1,13 @@
+<div class="research-list">
+<% for (const r of items) { const tags = String(r.tags || '').split(',').map(t => t.trim()).filter(Boolean); %>
+<div class="research-item<%= r.image ? '' : ' no-img' %>">
+<% if (r.image) { %><div class="research-img"><img src="<%= r.image %>" alt="<%= r.title %>"></div><% } %>
+<div>
+<% if (r.horizon) { %><span class="tag"><%= r.horizon %></span><% } %>
+<% for (const t of tags) { %><span class="tag blue"><%= t %></span><% } %>
+<h3><%= r.title %></h3>
+<p><%= r.summary %></p>
+</div>
+</div>
+<% } %>
+</div>

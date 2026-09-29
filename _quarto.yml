@@ -1,0 +1,55 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+  resources:
+    - images/
+    - assets/
+
+# Site-wide lab information (name, affiliation, email, ...) lives in _lab.yml
+# and is editable from the editor GUI ("General" tab).
+metadata-files:
+  - _lab.yml
+
+website:
+  title: "QSTEAP Lab"
+  description: "Quantum Science and Technology with Electrons, Atoms and Photons — University of Wisconsin–Madison"
+  favicon: images/favicon.png
+  site-url: https://qsteap-lab.github.io
+  navbar:
+    logo: images/logo-nosub.png
+    logo-alt: "QSTEAP Lab"
+    title: false
+    right:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: team.qmd
+        text: Team
+      - href: publications.qmd
+        text: Publications
+      - href: news.qmd
+        text: News
+      - href: join.qmd
+        text: Join Us
+      - href: contact.qmd
+        text: Contact
+
+format:
+  html:
+    theme: cosmo
+    css: assets/styles.css
+    toc: false
+    page-layout: full
+    title-block-banner: false
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    include-after-body:
+      - file: assets/hero.html
+
+filters:
+  - assets/lab.lua

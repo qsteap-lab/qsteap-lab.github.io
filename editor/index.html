@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QSTEAP Lab — Website Editor</title>
+<link rel="icon" href="/files/images/favicon.png">
+<style>
+  :root { --red:#b3121b; --red2:#8f0e15; --blue:#1a7fe0; --ink:#16181d; --muted:#666c78; --line:#e3e5ea; --soft:#f6f7f9; --ok:#1d8a4a; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, "Segoe UI", Inter, system-ui, sans-serif; color:var(--ink); background:var(--soft); }
+  header { background:#0b0c0f; color:#fff; padding:0.7rem 1.4rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:5; }
+  header img { height:34px; }
+  header .t { font-weight:600; opacity:.85; }
+  header .sp { flex:1; }
+  nav { display:flex; gap:.2rem; background:#fff; border-bottom:1px solid var(--line); padding:0 1rem; overflow-x:auto; position:sticky; top:50px; z-index:4; }
+  nav button { background:none; border:none; padding:.9rem 1rem; font-size:.95rem; cursor:pointer; border-bottom:3px solid transparent; color:var(--ink); white-space:nowrap; }
+  nav button.on { border-bottom-color:var(--red); color:var(--red); font-weight:600; }
+  main { max-width:980px; margin:1.4rem auto 6rem; padding:0 1rem; }
+  h2 { margin:.2rem 0 .3rem; }
+  .hint { color:var(--muted); margin:0 0 1rem; font-size:.93rem; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px; margin-bottom:.7rem; }
+  .card-h { display:flex; align-items:center; gap:.6rem; padding:.75rem 1rem; cursor:pointer; }
+  .card-h .ttl { flex:1; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .card-h .sub { color:var(--muted); font-weight:400; font-size:.88rem; }
+  .card-b { padding:0 1rem 1rem; display:none; border-top:1px solid var(--line); }
+  .card.open .card-b { display:block; }
+  .thumb { width:38px; height:38px; border-radius:8px; object-fit:cover; background:var(--soft); flex:none; }
+  label { display:block; font-size:.82rem; font-weight:600; color:#3b3f47; margin:.8rem 0 .25rem; }
+  input[type=text], input[type=number], input[type=date], input[type=email], input[type=url], select, textarea {
+    width:100%; padding:.55rem .7rem; border:1px solid #cfd3da; border-radius:8px; font:inherit; background:#fff; }
+  textarea { min-height:90px; resize:vertical; line-height:1.45; }
+  textarea.big { min-height:420px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size:.88rem; }
+  input:focus, textarea:focus, select:focus { outline:2px solid rgba(179,18,27,.25); border-color:var(--red); }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:0 1rem; }
+  @media (max-width:700px) { .row { grid-template-columns:1fr; } }
+  .btn { background:var(--red); color:#fff; border:none; border-radius:999px; padding:.55rem 1.1rem; font:inherit; font-weight:600; cursor:pointer; }
+  .btn:hover { background:var(--red2); }
+  .btn.sec { background:#fff; color:var(--ink); border:1px solid #cfd3da; }
+  .btn.sec:hover { border-color:var(--red); color:var(--red); }
+  .btn.blue { background:var(--blue); }
+  .btn.small { padding:.3rem .7rem; font-size:.82rem; }
+  .icon { background:none; border:1px solid transparent; border-radius:6px; cursor:pointer; padding:.2rem .45rem; font-size:1rem; color:var(--muted); }
+  .icon:hover { border-color:var(--line); color:var(--ink); }
+  .icon.del:hover { color:var(--red); }
+  .toolbar { display:flex; gap:.6rem; align-items:center; margin:1rem 0; flex-wrap:wrap; }
+  .savebar { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--line); padding:.7rem 1.4rem; display:flex; gap:.8rem; align-items:center; justify-content:flex-end; z-index:6; box-shadow:0 -4px 16px rgba(0,0,0,.05); }
+  .status { flex:1; color:var(--muted); font-size:.9rem; }
+  .status.dirty { color:var(--red); font-weight:600; }
+  .status.ok { color:var(--ok); font-weight:600; }
+  .imgfield { display:flex; gap:.6rem; align-items:center; }
+  .imgfield img { width:64px; height:64px; object-fit:cover; border-radius:8px; border:1px solid var(--line); background:var(--soft); }
+  .imgfield input[type=text] { flex:1; }
+  pre.log { background:#0b0c0f; color:#d6d8de; padding:1rem; border-radius:10px; max-height:320px; overflow:auto; font-size:.8rem; white-space:pre-wrap; }
+  .panel { background:#fff; border:1px solid var(--line); border-radius:12px; padding:1.2rem 1.3rem; margin-bottom:1rem; }
+  .panel h3 { margin-top:0; }
+  .pill { display:inline-block; padding:.15rem .6rem; border-radius:999px; font-size:.78rem; font-weight:600; }
+  .pill.g { background:#e5f4ea; color:var(--ok); } .pill.r { background:#fbe7e8; color:var(--red); }
+  iframe { width:100%; height:70vh; border:1px solid var(--line); border-radius:10px; background:#fff; }
+  .check { display:flex; align-items:center; gap:.5rem; margin-top:.9rem; font-size:.9rem; }
+  .muted { color:var(--muted); }
+  .search { max-width:360px; }
+</style>
+</head>
+<body>
+<header>
+  <img src="/files/images/logo-dark-nosub.png" alt="QSTEAP">
+  <span class="t">Website editor</span>
+  <span class="sp"></span>
+  <button class="btn small" onclick="buildPreview(true)">▶ Preview site</button>
+</header>
+<nav id="tabs"></nav>
+<main id="main"></main>
+<div class="savebar">
+  <span id="status" class="status">All changes saved.</span>
+  <button class="btn sec" onclick="reloadTab()">Discard changes</button>
+  <button class="btn" id="savebtn" onclick="save()">Save</button>
+</div>
+
+<script>
+const GROUPS = ['PI','Postdocs','Graduate students','Undergraduates','Staff','Open positions','Alumni'];
+const TABS = {
+  lab: { label:'General', kind:'object', hint:'Lab-wide information used on every page (hero, footer, contact page).',
+    fields:[['name','Lab name'],['full_name','Full name'],['tagline','Tagline (shown on home page)','textarea'],['institution','Institution'],['department','Department (optional)'],['pi','PI name'],['email','Contact email','email'],['address','Address'],['scholar','Google Scholar URL','url'],['hiring_text','"We are hiring" text (home page)','textarea']] },
+  research: { label:'Research', kind:'list', hint:'Research directions, shown in this order on the Research page. Items without an image are shown as text cards.',
+    title:i=>i.title, sub:i=>i.horizon, img:i=>i.image, blank:{title:'New research direction',tags:'',horizon:'Near term',image:'',summary:''},
+    fields:[['title','Title'],['horizon','Label','select',['Near term','Long term','Ongoing','Completed','']],['tags','Tags (comma-separated, e.g. Electrons, Atoms)'],['image','Image','image'],['summary','Description','textarea']] },
+  team: { label:'Team', kind:'list', hint:'People are grouped by "Group" on the Team page (PI first, then postdocs, students, …). Order within a group follows this list.',
+    title:i=>i.name, sub:i=>i.group+' · '+(i.role||''), img:i=>i.photo, blank:{name:'New member',role:'Graduate Student',group:'Graduate students',photo:'',bio:'',email:'',website:'',scholar:''},
+    fields:[['name','Name'],['role','Role / title'],['group','Group','select',GROUPS],['photo','Photo (square works best)','image'],['bio','Short bio','textarea'],['email','Email','email'],['website','Website','url'],['scholar','Google Scholar','url']] },
+  publications: { label:'Publications', kind:'list', hint:'Sorted by year automatically on the site. "Highlight" adds a blue accent to key papers.', addTop:true, search:true,
+    title:i=>i.title, sub:i=>(i.year||'')+' · '+(i.venue||''), blank:{title:'New paper',authors:'',venue:'',year:new Date().getFullYear(),type:'journal',doi:'',arxiv:'',highlight:false},
+    fields:[['title','Title'],['authors','Authors (e.g. A. Kam, S. Tsesses, G. Bartal)'],['venue','Journal / venue (e.g. Nature 640, 634–640 (2025))'],['year','Year','number'],['type','Type','select',['journal','preprint','conference','book','thesis']],['doi','DOI (e.g. 10.1038/...)'],['arxiv','arXiv ID (e.g. 2509.12124)'],['pdf','PDF link (optional)'],['highlight','Highlight this paper','checkbox']] },
+  news: { label:'News', kind:'list', hint:'Newest items appear first on the site (sorted by date). The three latest also appear on the home page.', addTop:true,
+    title:i=>i.title, sub:i=>i.date, img:i=>i.image, blank:{date:new Date().toISOString().slice(0,10),title:'New announcement',text:'',image:'',link:''},
+    fields:[['date','Date','date'],['title','Headline'],['text','Text','textarea'],['link','Link (optional)','url'],['image','Image (optional)','image']] },
+  pages: { label:'Page text', kind:'pages', hint:'Free text of individual pages, in Markdown. Things like ::: {.q-section} are layout blocks — edit the words between them.' },
+  publish: { label:'Preview & Publish', kind:'publish' },
+};
+let tab = 'lab', data = null, dirty = false, page = 'join', filter = '';
+
+const $ = (s, el=document) => el.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function setStatus(t, cls='') { const s = $('#status'); s.textContent = t; s.className = 'status ' + cls; }
+function markDirty() { dirty = true; setStatus('Unsaved changes', 'dirty'); }
+window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+function drawTabs() {
+  $('#tabs').innerHTML = Object.entries(TABS).map(([k, t]) => `<button class="${k===tab?'on':''}" onclick="go('${k}')">${t.label}</button>`).join('');
+  $('.savebar').style.display = (tab === 'publish') ? 'none' : 'flex';
+}
+async function go(k) {
+  if (dirty && !confirm('You have unsaved changes. Leave this tab without saving?')) return;
+  tab = k; dirty = false; filter = ''; drawTabs(); await reloadTab();
+}
+async function reloadTab() {
+  dirty = false; setStatus('All changes saved.');
+  const t = TABS[tab];
+  if (t.kind === 'object' || t.kind === 'list') data = await (await fetch('/api/data/' + tab)).json();
+  if (t.kind === 'pages') data = await (await fetch('/api/page/' + page)).json();
+  draw();
+}
+
+function fieldHTML(f, v, path) {
+  const [key, label, type='text', opts] = f;
+  const id = path + '.' + key;
+  if (type === 'textarea') return `<label>${label}</label><textarea data-k="${id}">${esc(v)}</textarea>`;
+  if (type === 'select') return `<label>${label}</label><select data-k="${id}">${opts.map(o => `<option ${o==v?'selected':''}>${esc(o)}</option>`).join('')}</select>`;
+  if (type === 'checkbox') return `<div class="check"><input type="checkbox" data-k="${id}" ${v?'checked':''}> ${label}</div>`;
+  if (type === 'image') return `<label>${label}</label><div class="imgfield"><img src="${v ? '/files/'+esc(v) : ''}" onerror="this.style.visibility='hidden'" onload="this.style.visibility='visible'"><input type="text" data-k="${id}" value="${esc(v)}" placeholder="images/…"><button class="btn sec small" onclick="pickImage(this)">Upload…</button><button class="icon" title="Remove image" onclick="clearImage(this)">✕</button></div>`;
+  return `<label>${label}</label><input type="${type}" data-k="${id}" value="${esc(v)}">`;
+}
+
+function draw() {
+  const t = TABS[tab], m = $('#main');
+  if (t.kind === 'object') {
+    m.innerHTML = `<h2>${t.label}</h2><p class="hint">${t.hint}</p><div class="panel">${t.fields.map(f => fieldHTML(f, data[f[0]], 'o')).join('')}</div>`;
+  } else if (t.kind === 'list') {
+    const items = data.map((it, i) => ({it, i})).filter(({it}) => !filter || JSON.stringify(it).toLowerCase().includes(filter));
+    m.innerHTML = `<h2>${t.label}</h2><p class="hint">${t.hint}</p>
+      <div class="toolbar"><button class="btn" onclick="addItem()">＋ Add</button>
+      ${t.search ? `<input class="search" type="text" placeholder="Search…" value="${esc(filter)}" oninput="filter=this.value.toLowerCase();draw();this.focus();this.setSelectionRange(this.value.length,this.value.length)">` : ''}
+      ${tab==='publications' ? '<button class="btn sec" onclick="bibDialog()">Import BibTeX (from Google Scholar)…</button>' : ''}
+      <span class="muted">${data.length} item${data.length===1?'':'s'}</span></div>
+      <div id="bib"></div>` +
+      items.map(({it, i}) => `<div class="card" data-i="${i}">
+        <div class="card-h" onclick="toggle(event,${i})">
+          ${t.img ? `<img class="thumb" src="${t.img(it) ? '/files/'+esc(t.img(it)) : ''}" onerror="this.style.visibility='hidden'">` : ''}
+          <div class="ttl">${esc(t.title(it))}<div class="sub">${esc(t.sub(it))}</div></div>
+          <button class="icon" title="Move up" onclick="move(event,${i},-1)">↑</button>
+          <button class="icon" title="Move down" onclick="move(event,${i},1)">↓</button>
+          <button class="icon del" title="Delete" onclick="del(event,${i})">🗑</button>
+        </div>
+        <div class="card-b">${t.fields.map(f => fieldHTML(f, it[f[0]], i)).join('')}</div>
+      </div>`).join('');
+  } else if (t.kind === 'pages') {
+    const names = {home:'Home page', research:'Research (intro)', join:'Join Us', contact:'Contact'};
+    m.innerHTML = `<h2>Page text</h2><p class="hint">${t.hint}</p>
+      <div class="toolbar">${Object.entries(names).map(([k,v]) => `<button class="btn ${k===page?'':'sec'} small" onclick="switchPage('${k}')">${v}</button>`).join('')}</div>
+      <div class="panel"><textarea class="big" data-k="page.body">${esc(data.body)}</textarea>
+      <p class="hint" style="margin-top:.6rem">Markdown tips: <code>**bold**</code>, <code>*italic*</code>, <code>[link text](https://…)</code>, <code>## Heading</code>, lists start with <code>- </code>. <code>{{&lt; meta lab.email &gt;}}</code> inserts a value from the General tab.</p></div>`;
+  } else if (t.kind === 'publish') {
+    drawPublish();
+  }
+  m.querySelectorAll('[data-k]').forEach(el => el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'input', onEdit));
+}
+
+function onEdit(e) {
+  const el = e.target, [p, k] = el.dataset.k.split('.');
+  let v = el.type === 'checkbox' ? el.checked : el.value;
+  if (el.type === 'number') v = v === '' ? '' : Number(v);
+  if (p === 'o') data[k] = v; else if (p === 'page') data.body = v; else data[+p][k] = v;
+  if (el.closest('.imgfield')) { const img = el.closest('.imgfield').querySelector('img'); img.src = v ? '/files/' + v : ''; }
+  markDirty();
+}
+function toggle(e, i) { if (e.target.closest('.icon')) return; e.currentTarget.parentElement.classList.toggle('open'); }
+function openIdx() { return [...document.querySelectorAll('.card.open')].map(c => +c.dataset.i); }
+function redrawKeepOpen(map = x => x) { const o = openIdx().map(map); draw(); o.forEach(i => { const c = document.querySelector(`.card[data-i="${i}"]`); if (c) c.classList.add('open'); }); }
+function move(e, i, d) { e.stopPropagation(); const j = i + d; if (j < 0 || j >= data.length) return; [data[i], data[j]] = [data[j], data[i]]; markDirty(); redrawKeepOpen(x => x === i ? j : x === j ? i : x); }
+function del(e, i) { e.stopPropagation(); if (!confirm('Delete "' + TABS[tab].title(data[i]) + '"?')) return; data.splice(i, 1); markDirty(); redrawKeepOpen(x => x > i ? x - 1 : x); }
+function addItem() {
+  const t = TABS[tab], it = JSON.parse(JSON.stringify(t.blank));
+  if (t.addTop) { data.unshift(it); markDirty(); redrawKeepOpen(x => x + 1); document.querySelector('.card[data-i="0"]').classList.add('open'); }
+  else { data.push(it); markDirty(); redrawKeepOpen(); const c = document.querySelector(`.card[data-i="${data.length-1}"]`); c.classList.add('open'); c.scrollIntoView({behavior:'smooth'}); }
+}
+async function switchPage(k) { if (dirty && !confirm('Discard unsaved changes to this page?')) return; page = k; await reloadTab(); }
+
+function pickImage(btn) {
+  const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*';
+  inp.onchange = async () => {
+    const fd = new FormData(); fd.append('file', inp.files[0]);
+    setStatus('Uploading…');
+    const r = await (await fetch('/api/upload', {method:'POST', body:fd})).json();
+    if (!r.ok) return alert(r.error || 'Upload failed');
+    const t = btn.parentElement.querySelector('input[type=text]'); t.value = r.path; t.dispatchEvent(new Event('input'));
+  };
+  inp.click();
+}
+function clearImage(btn) { const t = btn.parentElement.querySelector('input[type=text]'); t.value = ''; t.dispatchEvent(new Event('input')); }
+
+async function save() {
+  const t = TABS[tab];
+  const url = t.kind === 'pages' ? '/api/page/' + page : '/api/data/' + tab;
+  const r = await fetch(url, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)});
+  if (!r.ok) return setStatus('Save failed!', 'dirty');
+  dirty = false; setStatus('Saved ✓ — click "Preview site" to see it.', 'ok');
+}
+
+function bibDialog() {
+  $('#bib').innerHTML = `<div class="panel"><h3>Import from Google Scholar</h3>
+    <p class="hint">On your Google Scholar profile: tick the box above the paper list to select all → <b>Export</b> → <b>BibTeX</b>. Copy everything on that page and paste it here. Papers already in the list (same title) are skipped.</p>
+    <textarea id="bibtext" class="big" style="min-height:200px" placeholder="@article{…}"></textarea>
+    <div class="toolbar"><button class="btn" onclick="importBib()">Import</button><button class="btn sec" onclick="$('#bib').innerHTML=''">Cancel</button></div></div>`;
+}
+async function importBib() {
+  if (dirty) await save();
+  const r = await (await fetch('/api/bibtex', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({text: $('#bibtext').value})})).json();
+  await reloadTab();
+  setStatus(`Imported ${r.added} new paper(s) (${r.found} found, ${r.found - r.added} already listed). Check them below.`, 'ok');
+}
+
+async function drawPublish() {
+  const m = $('#main');
+  m.innerHTML = `<h2>Preview & Publish</h2><p class="hint">Preview builds the site on your computer. Publish sends your saved changes to GitHub; the live site updates about a minute later.</p>
+    <div class="panel"><h3>1 · Preview</h3><div class="toolbar"><button class="btn blue" onclick="buildPreview(false)">Build preview</button><a class="btn sec" href="/preview/" target="_blank">Open preview in new tab ↗</a></div><div id="pv"></div></div>
+    <div class="panel"><h3>2 · Publish</h3><div id="st" class="muted">Checking…</div>
+      <label>What did you change? (short note)</label><input type="text" id="msg" placeholder="e.g. Added new student, updated publications">
+      <div class="toolbar"><button class="btn" onclick="doPublish()">Publish to website</button></div><div id="plog"></div></div>`;
+  const s = await (await fetch('/api/status')).json();
+  $('#st').innerHTML = `Quarto: <span class="pill ${s.quarto?'g':'r'}">${s.quarto?'installed':'not found — install from quarto.org'}</span> &nbsp;
+    Git: <span class="pill ${s.repo?'g':'r'}">${s.repo ? 'connected' + (s.remote ? ' → ' + esc(s.remote) : '') : 'not set up yet'}</span>
+    ${s.changes ? `<details style="margin-top:.6rem"><summary>Changed files</summary><pre class="log">${esc(s.changes)}</pre></details>` : (s.repo ? '<div style="margin-top:.5rem">No unpublished changes.</div>' : '')}`;
+}
+async function buildPreview(openTab) {
+  if (dirty && confirm('Save your changes before previewing?')) await save();
+  const w = openTab ? window.open('about:blank', '_blank') : null;
+  if (w) w.document.write('<p style="font-family:sans-serif;padding:2rem">Building the site preview… (this takes a few seconds)</p>');
+  setStatus('Building preview…');
+  const pv = $('#pv'); if (pv) pv.innerHTML = '<p class="muted">Building… (a few seconds)</p>';
+  const r = await (await fetch('/api/render', {method:'POST'})).json();
+  if (!r.ok) { setStatus('Preview build failed — see log', 'dirty'); if (w) w.close(); if (pv) pv.innerHTML = `<pre class="log">${esc(r.log)}</pre>`; else alert(r.log); return; }
+  setStatus(dirty ? 'Unsaved changes' : 'Preview built ✓', dirty ? 'dirty' : 'ok');
+  if (w) w.location = '/preview/';
+  if (pv) pv.innerHTML = `<iframe src="/preview/?t=${Date.now()}"></iframe>`;
+}
+async function doPublish() {
+  if (!confirm('Publish all saved changes to the live website?')) return;
+  $('#plog').innerHTML = '<p class="muted">Publishing…</p>';
+  const r = await (await fetch('/api/publish', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({message: $('#msg').value})})).json();
+  $('#plog').innerHTML = `<p class="${r.ok?'':'muted'}" style="font-weight:600;color:${r.ok?'var(--ok)':'var(--red)'}">${r.ok ? 'Published ✓ The site will update in about a minute.' : 'Publishing failed — see details:'}</p><pre class="log">${esc(r.log)}</pre>`;
+}
+
+document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && e.key === 's') { e.preventDefault(); if (tab !== 'publish') save(); } });
+drawTabs(); reloadTab();
+</script>
+</body>
+</html>
