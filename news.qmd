@@ -1,5 +1,6 @@
 ---
 title: "News"
+description: "News and announcements from the QSTEAP Lab at the University of Wisconsin–Madison."
 hero:
   title: "Latest news"
 listing:

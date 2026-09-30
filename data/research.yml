@@ -1,20 +1,15 @@
-- title: Record-strength free-electron–light interaction
+- title: Unlocking new capabilities for neutral atom quantum computation and simulation
+  tags: Atoms, Photons
+  horizon: Ongoing
+  image: images/uploads/Screenshot_2026-09-29_121213.png
+  summary: Neutral atom arrays have become a frontrunner in the race for [utility scale quantum computation](https://arxiv.org/abs/2607.21554), building on their reconfigurability, scalability and high fidelity for all operations, while allowing some of the most advanced simulations of quantum systems to date. That said, we think there's plenty of room for improvement. Computation still suffers from key bottlenecks constraining [deep quantum circuit implementation](https://journals.aps.org/prxquantum/abstract/10.1103/fd15-4g1n), operational speed and gate fidelities; Simulation is limited to two native models, restricting the range of material properties that can be investigated. With a new, state-of-the-art Rb87 neutral atom array system, we aim to expand the toolbox for quantum computation and simulation with neutral atoms by developing new techniques to address the atoms in high-lying energy states ("Rydberg states"), [both globally and locally](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.108.053318).
+- title: Engineering free-electron–light interaction for quantum emission and beyond
   tags: Electrons, Photons
-  horizon: Near term
-  image: ''
-  summary: Free electrons in an electron microscope can exchange energy and quantum information with light, but the interaction is usually weak. We design nanophotonic devices that confine light to tiny volumes and phase-match it to the electron, aiming to break the record for free-electron–light coupling strength — the key step toward using free electrons as quantum emitters and probes of quantum light.
-- title: Free electrons meet atomic media
+  horizon: Ongoing
+  image: images/uploads/2d-interaction-takes-r.jpg
+  summary: Contrary to popular belief, free electrons can spontaneously exchange energy with light if the conditions are right. The conditions are usually straightforward, and the interaction is weak, which is why there was a [Nobel Prize](https://www.nobelprize.org/prizes/physics/1958/summary/) for this phenomenon but not much else (fine! it makes for [important detectors](https://en.wikipedia.org/wiki/Cherenkov_detector) too). By designing new structures to mediate the interaction of free electrons and light, we want to shatter the record [we still hold(!)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.13.011002) for their interaction strength and utilize free electrons as quantum emitters, while exploring how such interaction can improve electron microscopy and spectroscopy, e.g. through electron Doppler cooling. Fabrication and experiments will be performed at joint UW-Madison or National Lab facilities, as well as with our many collaborators in the US and around the world.
+- title: Exchanging quantum information between atoms and free electrons using photons
   tags: Electrons, Atoms, Photons
-  horizon: Long term
-  image: images/concept.png
-  summary: We place a cloud of cold atoms directly in the path of an electron-microscope beam, with high-NA optical access. Using electromagnetically induced transparency (EIT), the atoms can shape how the electron interacts with light — and in turn, the electron can become entangled with the atomic medium. This gives a new, highly tunable platform for quantum light sources and for measuring quantum states of atoms with electrons.
-- title: Free-electron interconnects for neutral-atom processors
-  tags: Electrons, Atoms
-  horizon: Long term
-  image: ''
-  summary: Neutral-atom arrays are one of the leading platforms for quantum computing. We explore free electrons as flying quantum links that can connect separate atomic processors — a new kind of quantum interconnect that works on nanometer and femtosecond scales.
-- title: Nanophotonic free-electron cooling
-  tags: Electrons, Photons
   horizon: Near term
-  image: ''
-  summary: Borrowing an idea from atomic physics, we investigate Doppler-type cooling of free-electron beams with nanophotonic structures. The goal is to narrow the energy spread of the electron beam, which would improve both electron microscopy and free-electron quantum optics.
+  image: images/concept.png
+  summary: Using atomic clouds, controlled by lasers through an effect called [Electromagnetically-Induced Transparency](https://arxiv.org/abs/2601.06345), we can cause electrons to emit quantum light far more coherently and - potentially - in a much brighter fashion than with solid state structures. The same effect can conveniently store the emitted photons from one electron inside the cloud, allowing another electron can absorb it, and the two can become entangled in their energy with the right protocol. Alternatively, once atom-electron interaction is suitably enhanced, an electron beam moving close to two distant single atoms can be used to excite only one of them, creating an entangled atomic state when the electron energy is measured (in a process is called "heralding"). This is our "spécialité de la maison", and we are building (together with companies) a never-before-seen electron microscope system that can accomplish all of these research goals.

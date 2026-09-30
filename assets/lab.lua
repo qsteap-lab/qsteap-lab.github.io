@@ -49,7 +49,7 @@ function Pandoc(doc)
   if email ~= "" then
     footer = footer .. '<div class="footer-email"><a href="mailto:' .. esc(email) .. '">' .. esc(email) .. '</a></div>'
   end
-  footer = footer .. '</div></div><div class="footer-copy">© ' .. year .. ' ' .. esc(s(lab.name)) .. ' · Built with Quarto</div></footer>'
+  footer = footer .. '</div></div><div class="footer-copy">© ' .. year .. ' ' .. esc(s(lab.name)) .. ' · Built with Quarto, special thanks to <a href="https://zaporski-lab.github.io" target="_blank" rel="noopener">Zaporski Lab</a></div></footer>'
   table.insert(doc.blocks, pandoc.RawBlock("html", footer))
   return doc
 end

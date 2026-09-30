@@ -1,23 +1,24 @@
 ---
 title: "Contact"
+description: "Contact the QSTEAP Lab at the University of Wisconsin–Madison, including how to apply for graduate student, postdoc and undergraduate positions."
 hero:
   title: "Contact us"
 ---
+::: {.q-section .q-section-narrow}
 
-::: {.q-section}
-::: {.contact-grid}
-:::: {.contact-card}
-### Get in touch
-**{{< meta lab.pi >}}**, Principal Investigator<br>
-[{{< meta lab.email >}}](mailto:{{< meta lab.email >}})
+Feel free to send us questions or queries at [{{< meta lab.email >}}](mailto:{{< meta lab.email >}}) to discuss new science and new ideas! If you would like to join us, email the address above with a CV and a short description of your interests, and we will get back to you posthaste. 
 
-[Google Scholar]({{< meta lab.scholar >}})
-::::
-:::: {.contact-card}
-### Where we are
-{{< meta lab.name >}}<br>
-{{< meta lab.institution >}}<br>
-{{< meta lab.address >}}
-::::
-:::
+## We Are Hiring!
+
+The QSTEAP Lab is starting up at the University of Wisconsin–Madison, and we are looking for curious, motivated, hands-on people who want to build new experiments from the ground up. Our work combines electron microscopy, cold atoms, lasers and a ton of electronics, so there is room for people from many backgrounds — different strengths make the whole team stronger!
+
+### Postdoctoral researchers
+We are looking for postdocs with experimental AMO experience and can provide full support (although fellowships are appreciated!). Join us if you want to blaze a path together towards unexplored territory!
+
+### Graduate students
+If you are considering or have [applied to Graduate School](https://grad.wisc.edu/apply/) at UW–Madison (Engineering or Physics), and you like the notion of building experiments no one built before to develop technologies nobody knew could exist, please get in touch. 
+
+### Undergraduate students
+Undergraduates are always welcome to apply for projects in optics, RF electronics, firmware/embedded programming and control systems, and are encouraged to consider the [URS](https://urs.ls.wisc.edu/) or [SURE](https://gers.engr.wisc.edu/sure/) programs, as well as the [McNair Scholars](https://mcnair.wisc.edu/) program and the [Hilldale Research Fellowship](https://awards.advising.wisc.edu/all-scholarships/hilldale-undergraduatefaculty-research-fellowship/).   
+
 :::

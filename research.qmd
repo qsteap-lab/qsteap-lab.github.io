@@ -1,5 +1,6 @@
 ---
 title: "Research"
+description: "Research at the QSTEAP Lab (UW–Madison): quantum optics with free electrons, Rydberg atoms and neutral atom arrays, and nanophotonics."
 hero:
   title: "Research"
   subtitle: "Fusing atomic and free-electron quantum optics"
@@ -9,10 +10,9 @@ listing:
   template: templates/research.ejs
   sort: false
 ---
-
 ::: {.q-section}
 ::: {.lead}
-Free electrons, atoms and photons are each powerful quantum systems on their own. Our lab studies what becomes possible when all three are controlled at the same time — from record-strength electron–light coupling on a chip, to electrons entangled with atomic media, to free-electron links between neutral-atom quantum processors.
+Free electrons, atoms and photons are each powerful quantum systems on their own. Our lab studies what becomes possible when all three are controlled at the same time — from record-strength electron–light coupling, through electrons entangled with atomic media, to free-electron links between neutral-atom qubits.
 :::
 
 ::: {#research-list}

@@ -12,11 +12,16 @@ project:
 metadata-files:
   - _lab.yml
 
+# Link-preview image (Slack, LinkedIn, X, email) for every page
+image: images/social-card.png
+
 website:
   title: "QSTEAP Lab"
   description: "Quantum Science and Technology with Electrons, Atoms and Photons — University of Wisconsin–Madison"
   favicon: images/favicon.png
   site-url: https://qsteap-lab.github.io
+  open-graph: true
+  twitter-card: true
   navbar:
     logo: images/logo-nosub.png
     logo-alt: "QSTEAP Lab"
@@ -32,8 +37,6 @@ website:
         text: Publications
       - href: news.qmd
         text: News
-      - href: join.qmd
-        text: Join Us
       - href: contact.qmd
         text: Contact
 

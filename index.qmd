@@ -1,6 +1,7 @@
 ---
 title: "QSTEAP Lab"
-pagetitle: "QSTEAP Lab — Quantum Science and Technology with Electrons, Atoms and Photons"
+pagetitle: "Quantum Science and Technology with Electrons, Atoms and Photons"
+description: "The QSTEAP Lab at the University of Wisconsin–Madison, led by Shai Tsesses, develops quantum technologies that combine free electrons, cold atoms and light."
 body-classes: home
 hero:
   logo: images/logo-dark.png
@@ -12,7 +13,6 @@ listing:
   sort: "date desc"
   max-items: 3
 ---
-
 ::: {.q-section}
 ::: {.two-col}
 :::: {}
@@ -21,7 +21,7 @@ listing:
 ## Electrons, atoms and photons — together
 
 ::: {.lead}
-We develop quantum technologies that use simultaneous control over **free electrons**, **atoms** and **light**. By bringing cold atoms and nanophotonic devices into the beam of an electron microscope, we create new ways to generate, shape and measure quantum states of light and matter.
+We develop quantum technologies that use simultaneous control over **free electrons**, **atoms** and **light**. By bringing cold atoms and lasers into the beamline of an electron microscope, we create new ways to generate, shape and measure quantum states of light and matter.
 :::
 
 ::: {.tagline}
@@ -47,19 +47,20 @@ We develop quantum technologies that use simultaneous control over **free electr
 [e⁻]{.letter}
 
 ### Free electrons
-Electron-microscope beams shaped and modulated by light — coherent quantum probes with nanometer and femtosecond resolution.
+Electron-microscope beams shaped and modulated by light — coherent quantum probes with exquisite spatio-temporal resolution.
+
 ::::
 :::: {.pillar .blue}
-[At]{.letter}
+[Rb^87^]{.letter}
 
 ### Atoms
-Cold atomic media and atom arrays, controlled with lasers through electromagnetically induced transparency and Rydberg interactions.
+Cold atomic clouds and atom arrays, controlled with lasers to engineer their quantum state and electromagnetic vacuum properties.
 ::::
 :::: {.pillar}
 [γ]{.letter}
 
 ### Photons
-Nanophotonic and near-field light that couples electrons and atoms, for tunable quantum light sources and quantum interconnects.
+lasers and quantum light emitted by atoms or free electrons, sometimes coupled to nanophotonic devices.
 ::::
 :::
 :::
@@ -82,6 +83,6 @@ Nanophotonic and near-field light that couples electrons and atoms, for tunable 
 ### We are hiring!
 {{< meta lab.hiring_text >}}
 ::::
-[Join the lab](join.qmd){.btn-q}
+[Join the lab](contact.qmd){.btn-q}
 :::
 :::

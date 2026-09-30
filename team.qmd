@@ -1,5 +1,6 @@
 ---
 title: "Team"
+description: "Meet the QSTEAP Lab team at the University of Wisconsin–Madison, led by Prof. Shai Tsesses. Open positions for graduate students, postdocs and undergraduates."
 hero:
   title: "Meet the team"
 listing:

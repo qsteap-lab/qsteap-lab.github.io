@@ -19,7 +19,7 @@ const initials = n => String(n || '?').split(/\s+/).filter(Boolean).map(w => w[0
 <h3><%= p.name %></h3>
 <div class="role"><%= p.role %></div>
 <% if (p.bio) { %><div class="bio"><%= p.bio %></div><% } %>
-<div class="links"><% if (p.email) { %><a href="mailto:<%= p.email %>">Email</a><% } %><% if (p.website) { %><a href="<%= p.website %>"><%= open ? 'Join us →' : 'Website' %></a><% } %><% if (p.scholar) { %><a href="<%= p.scholar %>" target="_blank" rel="noopener">Google Scholar</a><% } %></div>
+<div class="links"><% if (p.email) { %><a href="mailto:<%= p.email %>">Email</a><% } %><% if (open) { %><a href="contact.html">Join us →</a><% } else if (p.cv) { %><a href="<%= p.cv %>" target="_blank" rel="noopener">CV</a><% } %><% if (p.scholar) { %><a href="<%= p.scholar %>" target="_blank" rel="noopener">Google Scholar</a><% } %></div>
 </div>
 </div>
 <% } %>

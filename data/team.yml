@@ -1,16 +1,16 @@
 - name: Shai Tsesses
   role: Principal Investigator
   group: PI
-  photo: ''
-  bio: Shai leads the QSTEAP Lab at the University of Wisconsin–Madison. His research brings together free-electron physics, atomic physics and nanophotonics, with a focus on quantum optics that uses all three at once. He did his graduate work at the Technion – Israel Institute of Technology on topological and quantum near-field optics and free-electron–light interactions, and was then a postdoctoral researcher in the group of Vladan Vuletić at MIT and the MIT–Harvard Center for Ultracold Atoms, working on Rydberg atom arrays and cavity-free atom–photon interfaces.
-  email: your-email@wisc.edu
-  website: ''
+  photo: images/uploads/Shai-Tsesses-Shai-Tsesses-e1772133957527-512x512.avif
+  bio: 'Shai leads the QSTEAP Lab at the University of Wisconsin–Madison. His research brings together free-electron physics, atomic physics and nanophotonics, with a focus on quantum optics that uses one, two or all three at once. He did his graduate work under Guy Bartal at the Technion – Israel Institute of Technology on topological and quantum near-field optics, frequently collaborating with Ido Kaminer on free-electron–light interactions. for his postdoctoral research, Shai joined the group of Vladan Vuletić at MIT, working on Rydberg atoms and polaritons, neutral atom arrays and neutral atom quantum computers. Shai neglects many hobbies to focus on his research and his family (not necessarily in that order) but never fails to recognize or enjoy a good pop-culture reference.  '
+  email: tsesses@wisc.edu
+  cv: images/uploads/CV_Shai_Tsesses.pdf
   scholar: https://scholar.google.com/citations?user=Jf5cMM8AAAAJ&hl=en
 - name: This could be you!
   role: Graduate students, postdocs & undergraduates
   group: Open positions
   photo: ''
-  bio: We are building the team now. See the Join Us page for details.
+  bio: We are building the team now. See the Contact page for details.
   email: ''
-  website: join.html
+  cv: ''
   scholar: ''

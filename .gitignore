@@ -7,3 +7,5 @@ __pycache__/
 /.luarc.json
 
 /.quarto/
+
+**/*.quarto_ipynb

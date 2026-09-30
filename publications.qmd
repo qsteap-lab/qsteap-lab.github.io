@@ -1,5 +1,6 @@
 ---
 title: "Publications"
+description: "Publications by Shai Tsesses and the QSTEAP Lab on free-electron quantum optics, Rydberg atom arrays, optical skyrmions and nanophotonics."
 hero:
   title: "Publications"
 listing:

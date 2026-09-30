@@ -23,7 +23,7 @@ University of Wisconsin–Madison. Built with [Quarto](https://quarto.org).
 | Publications | `data/publications.yml` |
 | News | `data/news.yml` |
 | Research directions | `data/research.yml` |
-| Free page text | `index.qmd`, `research.qmd`, `join.qmd`, `contact.qmd` |
+| Free page text | `index.qmd`, `research.qmd`, `contact.qmd` |
 | Images | `images/` (uploads go to `images/uploads/`) |
 | Look & feel | `assets/styles.css`, hero animation in `assets/hero.html` |
 

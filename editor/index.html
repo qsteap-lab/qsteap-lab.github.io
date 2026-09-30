@@ -86,8 +86,8 @@ const TABS = {
     title:i=>i.title, sub:i=>i.horizon, img:i=>i.image, blank:{title:'New research direction',tags:'',horizon:'Near term',image:'',summary:''},
     fields:[['title','Title'],['horizon','Label','select',['Near term','Long term','Ongoing','Completed','']],['tags','Tags (comma-separated, e.g. Electrons, Atoms)'],['image','Image','image'],['summary','Description','textarea']] },
   team: { label:'Team', kind:'list', hint:'People are grouped by "Group" on the Team page (PI first, then postdocs, students, …). Order within a group follows this list.',
-    title:i=>i.name, sub:i=>i.group+' · '+(i.role||''), img:i=>i.photo, blank:{name:'New member',role:'Graduate Student',group:'Graduate students',photo:'',bio:'',email:'',website:'',scholar:''},
-    fields:[['name','Name'],['role','Role / title'],['group','Group','select',GROUPS],['photo','Photo (square works best)','image'],['bio','Short bio','textarea'],['email','Email','email'],['website','Website','url'],['scholar','Google Scholar','url']] },
+    title:i=>i.name, sub:i=>i.group+' · '+(i.role||''), img:i=>i.photo, blank:{name:'New member',role:'Graduate Student',group:'Graduate students',photo:'',bio:'',email:'',cv:'',scholar:''},
+    fields:[['name','Name'],['role','Role / title'],['group','Group','select',GROUPS],['photo','Photo (square works best)','image'],['bio','Short bio','textarea'],['email','Email','email'],['cv','CV (upload a PDF, or paste a link)','file'],['scholar','Google Scholar','url']] },
   publications: { label:'Publications', kind:'list', hint:'Sorted by year automatically on the site. "Highlight" adds a blue accent to key papers.', addTop:true, search:true,
     title:i=>i.title, sub:i=>(i.year||'')+' · '+(i.venue||''), blank:{title:'New paper',authors:'',venue:'',year:new Date().getFullYear(),type:'journal',doi:'',arxiv:'',highlight:false},
     fields:[['title','Title'],['authors','Authors (e.g. A. Kam, S. Tsesses, G. Bartal)'],['venue','Journal / venue (e.g. Nature 640, 634–640 (2025))'],['year','Year','number'],['type','Type','select',['journal','preprint','conference','book','thesis']],['doi','DOI (e.g. 10.1038/...)'],['arxiv','arXiv ID (e.g. 2509.12124)'],['pdf','PDF link (optional)'],['highlight','Highlight this paper','checkbox']] },
@@ -97,7 +97,7 @@ const TABS = {
   pages: { label:'Page text', kind:'pages', hint:'Free text of individual pages, in Markdown. Things like ::: {.q-section} are layout blocks — edit the words between them.' },
   publish: { label:'Preview & Publish', kind:'publish' },
 };
-let tab = 'lab', data = null, dirty = false, page = 'join', filter = '';
+let tab = 'lab', data = null, dirty = false, page = 'home', filter = '';
 
 const $ = (s, el=document) => el.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -128,6 +128,7 @@ function fieldHTML(f, v, path) {
   if (type === 'select') return `<label>${label}</label><select data-k="${id}">${opts.map(o => `<option ${o==v?'selected':''}>${esc(o)}</option>`).join('')}</select>`;
   if (type === 'checkbox') return `<div class="check"><input type="checkbox" data-k="${id}" ${v?'checked':''}> ${label}</div>`;
   if (type === 'image') return `<label>${label}</label><div class="imgfield"><img src="${v ? '/files/'+esc(v) : ''}" onerror="this.style.visibility='hidden'" onload="this.style.visibility='visible'"><input type="text" data-k="${id}" value="${esc(v)}" placeholder="images/…"><button class="btn sec small" onclick="pickImage(this)">Upload…</button><button class="icon" title="Remove image" onclick="clearImage(this)">✕</button></div>`;
+  if (type === 'file') return `<label>${label}</label><div class="imgfield"><input type="text" data-k="${id}" value="${esc(v)}" placeholder="images/uploads/… or https://…"><button class="btn sec small" onclick="pickImage(this, '.pdf')">Upload…</button><button class="icon" title="Remove file" onclick="clearImage(this)">✕</button></div>`;
   return `<label>${label}</label><input type="${type}" data-k="${id}" value="${esc(v)}">`;
 }
 
@@ -154,7 +155,7 @@ function draw() {
         <div class="card-b">${t.fields.map(f => fieldHTML(f, it[f[0]], i)).join('')}</div>
       </div>`).join('');
   } else if (t.kind === 'pages') {
-    const names = {home:'Home page', research:'Research (intro)', join:'Join Us', contact:'Contact'};
+    const names = {home:'Home page', research:'Research (intro)', contact:'Contact'};
     m.innerHTML = `<h2>Page text</h2><p class="hint">${t.hint}</p>
       <div class="toolbar">${Object.entries(names).map(([k,v]) => `<button class="btn ${k===page?'':'sec'} small" onclick="switchPage('${k}')">${v}</button>`).join('')}</div>
       <div class="panel"><textarea class="big" data-k="page.body">${esc(data.body)}</textarea>
@@ -170,7 +171,7 @@ function onEdit(e) {
   let v = el.type === 'checkbox' ? el.checked : el.value;
   if (el.type === 'number') v = v === '' ? '' : Number(v);
   if (p === 'o') data[k] = v; else if (p === 'page') data.body = v; else data[+p][k] = v;
-  if (el.closest('.imgfield')) { const img = el.closest('.imgfield').querySelector('img'); img.src = v ? '/files/' + v : ''; }
+  const img = el.closest('.imgfield')?.querySelector('img'); if (img) img.src = v ? '/files/' + v : '';
   markDirty();
 }
 function toggle(e, i) { if (e.target.closest('.icon')) return; e.currentTarget.parentElement.classList.toggle('open'); }
@@ -185,8 +186,8 @@ function addItem() {
 }
 async function switchPage(k) { if (dirty && !confirm('Discard unsaved changes to this page?')) return; page = k; await reloadTab(); }
 
-function pickImage(btn) {
-  const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*';
+function pickImage(btn, accept = 'image/*') {
+  const inp = document.createElement('input'); inp.type = 'file'; inp.accept = accept;
   inp.onchange = async () => {
     const fd = new FormData(); fd.append('file', inp.files[0]);
     setStatus('Uploading…');

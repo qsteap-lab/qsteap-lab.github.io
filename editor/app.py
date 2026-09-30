@@ -35,7 +35,6 @@ DATA_FILES = {
 PAGES = {
     "home": ROOT / "index.qmd",
     "research": ROOT / "research.qmd",
-    "join": ROOT / "join.qmd",
     "contact": ROOT / "contact.qmd",
 }
 
