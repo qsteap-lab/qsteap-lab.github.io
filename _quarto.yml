@@ -6,6 +6,7 @@ project:
   resources:
     - images/
     - assets/
+    - googled78b645bb21a35e3.html  # Google Search Console verification — do not delete
 
 # Site-wide lab information (name, affiliation, email, ...) lives in _lab.yml
 # and is editable from the editor GUI ("General" tab).
